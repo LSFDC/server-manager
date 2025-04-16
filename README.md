@@ -1,36 +1,151 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Server Manager
 
-## Getting Started
+**Server Manager** is an application designed to simplify the process of managing Lost Saga servers, services, or any custom server-related tools — both locally and remotely. This tool is intended for developers or administrators who want to efficiently control and monitor multiple server components from a single dashboard.
 
-First, run the development server:
+> This project is a part of the **Lost Saga Server** and aims to provide a clean and centralized way to manage multiple services.
+
+---
+
+## ✨ Features
+
+- 🔧 **Start, Stop, Restart Servers** — Manage your services like `ls_mainsvr`, `ls_gamesvr`, and others.
+- 📂 **Custom Configuration Support** — Load and store server configuration in editable formats.
+- 📊 **Status Monitoring** — See the real-time status of each registered service.
+- 🔒 **Safe Shutdown/Restart** — Handle processes safely to avoid crashes or data loss.
+- 💬 **Log Output Viewer** — Display real-time log output from running services.
+- 🖥️ **Cross-Platform Friendly** — Targeting Windows (primary), but planned for Linux support.
+
+---
+
+## 📦 Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/LSFDC/server-manager.git
+cd server-manager
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or build and start production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ⚙️ Configuration
 
-To learn more about Next.js, take a look at the following resources:
+Before running, make sure to configure your services. A sample structure might look like this:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```json
+{
+  "services": [
+    {
+      "name": "Game Server",
+      "path": "C:/LostSaga/bin/ls_gamesvr.exe",
+      "args": [],
+      "autoStart": true
+    },
+    {
+      "name": "Main Server",
+      "path": "C:/LostSaga/bin/ls_mainsvr.exe",
+      "args": [],
+      "autoStart": true
+    }
+  ]
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> Default config file: `./config/server-config.json`
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Once running, open your browser:
+
+```
+http://localhost:3000
+```
+
+You can now:
+
+- ✅ Add/edit/delete server entries
+- ✅ Start/stop specific services
+- ✅ View live logs per service
+- ✅ Edit configuration files each server files easily
+
+---
+
+## 📁 Project Structure
+
+```
+server-manager/
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── utils/
+│   └── config/
+├── config/
+│   └── server-config.json
+├── .env
+├── package.json
+└── README.md
+```
+
+---
+
+## 🧪 Environment Variables
+
+You can set your own port and environment mode in `.env`:
+
+```env
+PORT=3000
+NODE_ENV=development
+```
+
+---
+
+## 📸 Screenshots
+
+> SOON
+
+---
+
+## 🧑‍💻 Contributing
+
+Want to help improve this project? Contributions are welcome!
+
+1. Fork this repository
+2. Create a new branch: `git checkout -b your-feature-name`
+3. Commit your changes: `git commit -m "Add new feature"`
+4. Push to your branch: `git push origin your-feature-name`
+5. Submit a Pull Request 🚀
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**. See the [Apache License 2.0](./LICENSE) file for details.
+
+---
+
+## 📬 Contact
+
+Have questions, suggestions, or want to collaborate?
+
+- GitHub Issues: [https://github.com/LSFDC/server-manager/issues](https://github.com/LSFDC/server-manager/issues)
+
+---
+
+> Made with ❤️ by [LSFDC](https://github.com/LSFDC)
